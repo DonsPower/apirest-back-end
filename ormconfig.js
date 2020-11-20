@@ -1,12 +1,12 @@
 module.exports = {
     "type": process.env.TYPEORM_CONNECTION,
-    "host": TYPEORM_HOST,
-    "port": TYPEORM_PORT,
-    "username": TYPEORM_USERNAME,
-    "password": TYPEORM_PASSWORD,
-    "database": TYPEORM_DATABASE,
-    "synchronize": TYPEORM_SYNCHRONIZE,
-    "logging": TYPEORM_LOGGING,
+    "host": process.env.TYPEORM_HOST,
+    "port": process.env.TYPEORM_PORT,
+    "username": process.env.TYPEORM_USERNAME,
+    "password": process.env.TYPEORM_PASSWORD,
+    "database": process.env.TYPEORM_DATABASE,
+    "synchronize": process.env.TYPEORM_SYNCHRONIZE,
+    "logging": process.env.TYPEORM_LOGGING,
     "entities": [
        "dist/entity/**/*.ts"
     ],
