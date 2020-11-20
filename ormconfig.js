@@ -1,5 +1,6 @@
 module.exports = {
     "type": process.env.TYPEORM_CONNECTION,
+    "url" : process.env.DATABASE_URL,
     "host": process.env.TYPEORM_HOST,
     "port": process.env.TYPEORM_PORT,
     "username": process.env.TYPEORM_USERNAME,
