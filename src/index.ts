@@ -1,4 +1,5 @@
 import "reflect-metadata";
+import * as dotenv from 'dotenv';
 import {createConnection} from "typeorm";
 import * as express from "express";
 import {Request, Response} from "express";
@@ -8,7 +9,7 @@ import routes from './routers';
 
 const PORT= process.env.PORT || 3000;
 
-
+dotenv.config();
 createConnection().then(async () => {
 
     // create express app
