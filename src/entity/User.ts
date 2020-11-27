@@ -10,7 +10,8 @@ export class User {
 
     @Column()
     @MinLength(6)
-    @IsEmail()
+    //TODO: ADD VALIDATION
+    //@IsEmail()
     @IsNotEmpty()
     username: string;
 
