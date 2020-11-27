@@ -9,7 +9,7 @@ const router = Router();
 
 //Get user - Obtener todos los usuarios
 //TODO: ADD [checkJwt]
-router.get('/', UserController.getAll);
+router.get('/', [checkJwt],UserController.getAll);
 
 //Get one user 
 router.get('/:id',[checkJwt], UserController.getById);
