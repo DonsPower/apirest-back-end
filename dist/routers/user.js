@@ -6,7 +6,6 @@ var UserController_1 = require("./../controller/UserController");
 var express_1 = require("express");
 var router = express_1.Router();
 //Get user - Obtener todos los usuarios
-//TODO: ADD [checkJwt]
 router.get('/', [jwt_1.checkJwt], UserController_1.UserController.getAll);
 //Get one user 
 router.get('/:id', [jwt_1.checkJwt], UserController_1.UserController.getById);

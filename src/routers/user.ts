@@ -8,7 +8,7 @@ import { Router } from "express";
 const router = Router();
 
 //Get user - Obtener todos los usuarios
-//TODO: ADD [checkJwt]
+
 router.get('/', [checkJwt],UserController.getAll);
 
 //Get one user 
