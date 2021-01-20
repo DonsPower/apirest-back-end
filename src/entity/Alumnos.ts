@@ -9,19 +9,19 @@ export class Alumnos {
 
     @Column()
     @IsNotEmpty()
-    nombre: string;
+    nombreAlumno: string;
 
     @Column()
     @IsNotEmpty()
-    apellidop: string;
+    apellidoPatAlumno: string;
 
     @Column()
     @IsNotEmpty()
-    apellidom: string;
+    apellidoMatAlumno: string;
 
     @Column()
     @IsNotEmpty()
-    progacademico: string;
+    carrera: string;
 
     @Column()
     @IsNotEmpty()
@@ -29,28 +29,24 @@ export class Alumnos {
 
     @Column()
     @IsNotEmpty()
-    telefonomovil: number;
+    telefonoMovil: number;
 
     @Column()
     @IsNotEmpty()
-    telefonofijo: number;
+    telefonoFijo: number;
 
     @Column()
     @IsNotEmpty()
-    telefonopersonal: number;
+    telefonoPersonal: number;
 
     @Column()
     @IsEmail()
     @IsNotEmpty()
-    correo: string;
+    emailAlumno: string;
 
     @Column()
     @IsNotEmpty()
-    huella: string;
-
-    @Column()
-    @IsNotEmpty()
-    nss: string;
+    NSS: string;
 
     @Column()
     @CreateDateColumn()
