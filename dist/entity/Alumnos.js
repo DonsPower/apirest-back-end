@@ -23,22 +23,22 @@ var Alumnos = /** @class */ (function () {
         typeorm_1.Column(),
         class_validator_1.IsNotEmpty(),
         __metadata("design:type", String)
-    ], Alumnos.prototype, "nombre", void 0);
+    ], Alumnos.prototype, "nombreAlumno", void 0);
     __decorate([
         typeorm_1.Column(),
         class_validator_1.IsNotEmpty(),
         __metadata("design:type", String)
-    ], Alumnos.prototype, "apellidop", void 0);
+    ], Alumnos.prototype, "apellidoPatAlumno", void 0);
     __decorate([
         typeorm_1.Column(),
         class_validator_1.IsNotEmpty(),
         __metadata("design:type", String)
-    ], Alumnos.prototype, "apellidom", void 0);
+    ], Alumnos.prototype, "apellidoMatAlumno", void 0);
     __decorate([
         typeorm_1.Column(),
         class_validator_1.IsNotEmpty(),
         __metadata("design:type", String)
-    ], Alumnos.prototype, "progacademico", void 0);
+    ], Alumnos.prototype, "carrera", void 0);
     __decorate([
         typeorm_1.Column(),
         class_validator_1.IsNotEmpty(),
@@ -48,33 +48,28 @@ var Alumnos = /** @class */ (function () {
         typeorm_1.Column(),
         class_validator_1.IsNotEmpty(),
         __metadata("design:type", Number)
-    ], Alumnos.prototype, "telefonomovil", void 0);
+    ], Alumnos.prototype, "telefonoMovil", void 0);
     __decorate([
         typeorm_1.Column(),
         class_validator_1.IsNotEmpty(),
         __metadata("design:type", Number)
-    ], Alumnos.prototype, "telefonofijo", void 0);
+    ], Alumnos.prototype, "telefonoFijo", void 0);
     __decorate([
         typeorm_1.Column(),
         class_validator_1.IsNotEmpty(),
         __metadata("design:type", Number)
-    ], Alumnos.prototype, "telefonopersonal", void 0);
+    ], Alumnos.prototype, "telefonoPersonal", void 0);
     __decorate([
         typeorm_1.Column(),
         class_validator_1.IsEmail(),
         class_validator_1.IsNotEmpty(),
         __metadata("design:type", String)
-    ], Alumnos.prototype, "correo", void 0);
+    ], Alumnos.prototype, "emailAlumno", void 0);
     __decorate([
         typeorm_1.Column(),
         class_validator_1.IsNotEmpty(),
         __metadata("design:type", String)
-    ], Alumnos.prototype, "huella", void 0);
-    __decorate([
-        typeorm_1.Column(),
-        class_validator_1.IsNotEmpty(),
-        __metadata("design:type", String)
-    ], Alumnos.prototype, "nss", void 0);
+    ], Alumnos.prototype, "NSS", void 0);
     __decorate([
         typeorm_1.Column(),
         typeorm_1.CreateDateColumn(),

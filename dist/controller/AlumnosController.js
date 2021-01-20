@@ -101,17 +101,16 @@ var AlumnosController = /** @class */ (function () {
                 case 0:
                     _a = req.body, nombre = _a.nombre, apellidop = _a.apellidop, apellidom = _a.apellidom, progacademico = _a.progacademico, boleta = _a.boleta, telefonofijo = _a.telefonofijo, telefonomovil = _a.telefonomovil, telefonopersonal = _a.telefonopersonal, correo = _a.correo, huella = _a.huella, nss = _a.nss;
                     alum = new Alumnos_1.Alumnos();
-                    alum.nombre = nombre;
-                    alum.apellidop = apellidop;
-                    alum.apellidom = apellidom;
-                    alum.progacademico = progacademico;
+                    alum.nombreAlumno = nombre;
+                    alum.apellidoPatAlumno = apellidop;
+                    alum.apellidoMatAlumno = apellidom;
+                    alum.carrera = progacademico;
                     alum.boleta = boleta;
-                    alum.telefonomovil = telefonomovil;
-                    alum.telefonofijo = telefonofijo;
-                    alum.telefonopersonal = telefonopersonal;
-                    alum.correo = correo;
-                    alum.huella = huella;
-                    alum.nss = nss;
+                    alum.telefonoMovil = telefonomovil;
+                    alum.telefonoFijo = telefonofijo;
+                    alum.telefonoPersonal = telefonopersonal;
+                    alum.emailAlumno = correo;
+                    alum.NSS = nss;
                     return [4 /*yield*/, class_validator_1.validate(alum, { validationError: { target: false, value: false } })];
                 case 1:
                     errors = _b.sent();
@@ -137,12 +136,12 @@ var AlumnosController = /** @class */ (function () {
         });
     }); };
     AlumnosController.editUser = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var id, alum, _a, nombre, apellidop, apellidom, progacademico, boleta, telefonofijo, telefonomovil, telefonopersonal, correo, huella, nss, userRepository, error_4, validationSub, errors, error_5;
+        var id, alum, _a, nombre, apellidop, apellidom, progacademico, boleta, telefonofijo, telefonomovil, telefonopersonal, correo, nss, userRepository, error_4, validationSub, errors, error_5;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     id = req.params.id;
-                    _a = req.body, nombre = _a.nombre, apellidop = _a.apellidop, apellidom = _a.apellidom, progacademico = _a.progacademico, boleta = _a.boleta, telefonofijo = _a.telefonofijo, telefonomovil = _a.telefonomovil, telefonopersonal = _a.telefonopersonal, correo = _a.correo, huella = _a.huella, nss = _a.nss;
+                    _a = req.body, nombre = _a.nombre, apellidop = _a.apellidop, apellidom = _a.apellidom, progacademico = _a.progacademico, boleta = _a.boleta, telefonofijo = _a.telefonofijo, telefonomovil = _a.telefonomovil, telefonopersonal = _a.telefonopersonal, correo = _a.correo, nss = _a.nss;
                     userRepository = typeorm_1.getRepository(Alumnos_1.Alumnos);
                     _b.label = 1;
                 case 1:
@@ -150,17 +149,16 @@ var AlumnosController = /** @class */ (function () {
                     return [4 /*yield*/, userRepository.findOneOrFail(id)];
                 case 2:
                     alum = _b.sent();
-                    alum.nombre = nombre;
-                    alum.apellidop = apellidop;
-                    alum.apellidom = apellidom;
-                    alum.progacademico = progacademico;
+                    alum.nombreAlumno = nombre;
+                    alum.apellidoPatAlumno = apellidop;
+                    alum.apellidoMatAlumno = apellidom;
+                    alum.carrera = progacademico;
                     alum.boleta = boleta;
-                    alum.telefonomovil = telefonomovil;
-                    alum.telefonofijo = telefonofijo;
-                    alum.telefonopersonal = telefonopersonal;
-                    alum.correo = correo;
-                    alum.huella = huella;
-                    alum.nss = nss;
+                    alum.telefonoMovil = telefonomovil;
+                    alum.telefonoFijo = telefonofijo;
+                    alum.telefonoPersonal = telefonopersonal;
+                    alum.emailAlumno = correo;
+                    alum.NSS = nss;
                     return [3 /*break*/, 4];
                 case 3:
                     error_4 = _b.sent();

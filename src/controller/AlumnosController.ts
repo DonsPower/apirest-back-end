@@ -28,21 +28,20 @@ export class AlumnosController{
             res.status(404).json({message: 'User not find'});
         }
     };
-    static newUser = async (req: Request, res: Response)=>{
+    static newUser = async (req: Request, res                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        : Response)=>{
         const {nombre, apellidop, apellidom, progacademico, boleta, telefonofijo, telefonomovil, telefonopersonal, correo, huella, nss} = req.body;
         //Created instance for user
         const alum= new Alumnos();
-        alum.nombre = nombre;
-        alum.apellidop = apellidop;
-        alum.apellidom =  apellidom;
-        alum.progacademico = progacademico;
+        alum.nombreAlumno = nombre;
+        alum.apellidoPatAlumno = apellidop;
+        alum.apellidoMatAlumno =  apellidom;
+        alum.carrera = progacademico;
         alum.boleta =  boleta;
-        alum.telefonomovil =  telefonomovil;
-        alum.telefonofijo =  telefonofijo;
-        alum.telefonopersonal =  telefonopersonal;
-        alum.correo =  correo;
-        alum.huella =  huella;
-        alum.nss =  nss;
+        alum.telefonoMovil =  telefonomovil;
+        alum.telefonoFijo =  telefonofijo;
+        alum.telefonoPersonal =  telefonopersonal;
+        alum.emailAlumno =  correo;
+        alum.NSS =  nss;
 
         const errors = await validate(alum, {validationError:{target: false, value:false}});
         if(errors.length > 0){
@@ -54,29 +53,30 @@ export class AlumnosController{
             
         } catch (error) {
             return res.status(409).json({message: 'Username already exist'});
-        }
+        }    
         //All ok
         res.send('User created');
     };
     static editUser = async (req: Request, res: Response)=>{
         const {id} = req.params;
         let alum;
-        const {nombre, apellidop, apellidom, progacademico, boleta, telefonofijo, telefonomovil, telefonopersonal, correo, huella, nss} = req.body;
+        const {nombre, apellidop, apellidom, progacademico, boleta, telefonofijo, telefonomovil, telefonopersonal, correo, nss} = req.body;
 
         const userRepository = getRepository(Alumnos);
         try {
             alum= await userRepository.findOneOrFail(id);
-            alum.nombre = nombre;
-            alum.apellidop = apellidop;
-            alum.apellidom =  apellidom;
-            alum.progacademico =  progacademico;
+            alum.nombreAlumno = nombre;
+            alum.apellidoPatAlumno = apellidop;
+            alum.apellidoMatAlumno =  apellidom;
+            alum.carrera = progacademico;
             alum.boleta =  boleta;
-            alum.telefonomovil =  telefonomovil;
-            alum.telefonofijo =  telefonofijo;
-            alum.telefonopersonal =  telefonopersonal;
-            alum.correo =  correo;
-            alum.huella =  huella;
-            alum.nss =  nss;
+            alum.telefonoMovil =  telefonomovil;
+            alum.telefonoFijo =  telefonofijo;
+            alum.telefonoPersonal =  telefonopersonal;
+            alum.emailAlumno =  correo;
+            alum.NSS =  nss;
+            
+            
         } catch (error) {
             return res.status(404).json({message: 'User not found'});
         }
