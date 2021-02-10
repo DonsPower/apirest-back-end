@@ -7,8 +7,8 @@ import {validate} from 'class-validator';
 
 class AuthController{
     static login = async (req: Request, res: Response)=>{
-        const {username, password} = req.body;
-        if(!(username && password)){
+        const {username, password, token1} = req.body;
+        if(!(username && password && token1)){
             return res.status(400).json({message: 'User name and password required!! qlo '});
         }
 
@@ -20,10 +20,17 @@ class AuthController{
         } catch (error) {
             return res.status(400).json({message: 'Username or password is incorrect'});
         }
+        //Borrar try catch
+        try {
+            user= await userRepository.findOneOrFail({where:{token1}});
+        } catch (error) {
+            return res.status(400).json({message: 'Token incorrect'});
+        }
         //Check password
         if(!user.checkPassword(password)){
             return res.status(400).json({message: 'Username or Password are incorrect'})
         }
+        
         const token = jwt.sign({userId: user.id, username: user.username}, config.jwtSecret, {expiresIn: '1h'});
 
         res.json({message: 'OK', token:token});

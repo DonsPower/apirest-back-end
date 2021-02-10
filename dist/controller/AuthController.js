@@ -45,12 +45,12 @@ var AuthController = /** @class */ (function () {
     function AuthController() {
     }
     AuthController.login = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var _a, username, password, userRepository, user, error_1, token;
+        var _a, username, password, token1, userRepository, user, error_1, error_2, token;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
-                    _a = req.body, username = _a.username, password = _a.password;
-                    if (!(username && password)) {
+                    _a = req.body, username = _a.username, password = _a.password, token1 = _a.token1;
+                    if (!(username && password && token1)) {
                         return [2 /*return*/, res.status(400).json({ message: 'User name and password required!! qlo ' })];
                     }
                     userRepository = typeorm_1.getRepository(User_1.User);
@@ -65,6 +65,15 @@ var AuthController = /** @class */ (function () {
                     error_1 = _b.sent();
                     return [2 /*return*/, res.status(400).json({ message: 'Username or password is incorrect' })];
                 case 4:
+                    _b.trys.push([4, 6, , 7]);
+                    return [4 /*yield*/, userRepository.findOneOrFail({ where: { token1: token1 } })];
+                case 5:
+                    user = _b.sent();
+                    return [3 /*break*/, 7];
+                case 6:
+                    error_2 = _b.sent();
+                    return [2 /*return*/, res.status(400).json({ message: 'Token incorrect' })];
+                case 7:
                     //Check password
                     if (!user.checkPassword(password)) {
                         return [2 /*return*/, res.status(400).json({ message: 'Username or Password are incorrect' })];
@@ -76,7 +85,7 @@ var AuthController = /** @class */ (function () {
         });
     }); };
     AuthController.changePassword = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-        var userId, _a, oldPassword, newPassword, userRepository, user, error_2, validationOps, errors;
+        var userId, _a, oldPassword, newPassword, userRepository, user, error_3, validationOps, errors;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
@@ -94,7 +103,7 @@ var AuthController = /** @class */ (function () {
                     user = _b.sent();
                     return [3 /*break*/, 4];
                 case 3:
-                    error_2 = _b.sent();
+                    error_3 = _b.sent();
                     res.status(400).json({ message: 'Something goes wrong prrooo' });
                     return [3 /*break*/, 4];
                 case 4:

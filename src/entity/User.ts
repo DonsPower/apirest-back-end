@@ -23,6 +23,10 @@ export class User {
     @Column()
     @IsNotEmpty()
     role: string;
+    //Borrar token
+    @Column()
+    @IsNotEmpty()
+    token1: string;
 
     @Column()
     @CreateDateColumn()

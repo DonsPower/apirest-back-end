@@ -9,66 +9,72 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
+exports.Paae = void 0;
 var typeorm_1 = require("typeorm");
 var class_validator_1 = require("class-validator");
-var bcrypt = require("bcryptjs");
-var User = /** @class */ (function () {
-    function User() {
+var Paae = /** @class */ (function () {
+    function Paae() {
     }
-    //encript password
-    User.prototype.hashPassword = function () {
-        var salt = bcrypt.genSaltSync(10);
-        this.password = bcrypt.hashSync(this.password, salt);
-    };
-    //compare password vista -> bd
-    User.prototype.checkPassword = function (password) {
-        return bcrypt.compareSync(password, this.password);
-    };
     __decorate([
         typeorm_1.PrimaryGeneratedColumn(),
         __metadata("design:type", Number)
-    ], User.prototype, "id", void 0);
-    __decorate([
-        typeorm_1.Column(),
-        class_validator_1.MinLength(6)
-        //TODO: ADD VALIDATION
-        //@IsEmail()
-        ,
-        class_validator_1.IsNotEmpty(),
-        __metadata("design:type", String)
-    ], User.prototype, "username", void 0);
-    __decorate([
-        typeorm_1.Column(),
-        class_validator_1.MinLength(6),
-        class_validator_1.IsNotEmpty(),
-        __metadata("design:type", String)
-    ], User.prototype, "password", void 0);
+    ], Paae.prototype, "id", void 0);
     __decorate([
         typeorm_1.Column(),
         class_validator_1.IsNotEmpty(),
         __metadata("design:type", String)
-    ], User.prototype, "role", void 0);
+    ], Paae.prototype, "nombrePaae", void 0);
     __decorate([
         typeorm_1.Column(),
         class_validator_1.IsNotEmpty(),
         __metadata("design:type", String)
-    ], User.prototype, "token1", void 0);
+    ], Paae.prototype, "apellidoPatPaae", void 0);
+    __decorate([
+        typeorm_1.Column(),
+        class_validator_1.IsNotEmpty(),
+        __metadata("design:type", String)
+    ], Paae.prototype, "apellidoMatPaae", void 0);
+    __decorate([
+        typeorm_1.Column(),
+        class_validator_1.IsNotEmpty(),
+        __metadata("design:type", String)
+    ], Paae.prototype, "area", void 0);
+    __decorate([
+        typeorm_1.Column(),
+        class_validator_1.IsNotEmpty(),
+        __metadata("design:type", String)
+    ], Paae.prototype, "RFC", void 0);
+    __decorate([
+        typeorm_1.Column(),
+        class_validator_1.IsNotEmpty(),
+        __metadata("design:type", String)
+    ], Paae.prototype, "telefono", void 0);
+    __decorate([
+        typeorm_1.Column(),
+        class_validator_1.IsNotEmpty(),
+        __metadata("design:type", Number)
+    ], Paae.prototype, "extension", void 0);
+    __decorate([
+        typeorm_1.Column(),
+        class_validator_1.IsEmail(),
+        class_validator_1.IsNotEmpty(),
+        __metadata("design:type", String)
+    ], Paae.prototype, "emailPaae", void 0);
     __decorate([
         typeorm_1.Column(),
         typeorm_1.CreateDateColumn(),
         __metadata("design:type", Date)
-    ], User.prototype, "createAt", void 0);
+    ], Paae.prototype, "createAt", void 0);
     __decorate([
         typeorm_1.Column(),
         typeorm_1.UpdateDateColumn(),
         __metadata("design:type", Date)
-    ], User.prototype, "updateAt", void 0);
-    User = __decorate([
+    ], Paae.prototype, "updateAt", void 0);
+    Paae = __decorate([
         typeorm_1.Entity(),
-        typeorm_1.Unique(['username'])
-    ], User);
-    return User;
+        typeorm_1.Unique(['RFC'])
+    ], Paae);
+    return Paae;
 }());
-exports.User = User;
-//# sourceMappingURL=User.js.map
+exports.Paae = Paae;
+//# sourceMappingURL=Paae.js.map
